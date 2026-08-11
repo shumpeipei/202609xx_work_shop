@@ -2,7 +2,7 @@
 
 `$ bunx @marp-team/marp-cli slide/slides.md --preview`
 
-# HTMLプレビュー
+# HTML出力
 
 `$ bunx @marp-team/marp-cli slide/slides.md --output docs/index.html`
 
