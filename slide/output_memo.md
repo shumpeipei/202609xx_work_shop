@@ -4,7 +4,7 @@
 
 # HTMLプレビュー
 
-`$ bunx @marp-team/marp-cli slide/slides.md`
+`$ bunx @marp-team/marp-cli slide/slides.md --output docs/index.html`
 
 # PDF出力
 
