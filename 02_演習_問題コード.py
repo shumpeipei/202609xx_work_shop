@@ -60,19 +60,44 @@ def process_order(cid, items, dc):
 
     print("メール送信先: " + e)
     print("件名: ご注文確認 - 合計金額: " + str(ft) + "円")
-    print("本文: " + n + "様、ご注文ありがとうございます。合計金額は" + str(ft) + "円です。")
+    print(
+        "本文: "
+        + n
+        + "様、ご注文ありがとうございます。合計金額は"
+        + str(ft)
+        + "円です。"
+    )
 
     for item in items:
         if item["type"] == "food":
-            print("食品 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします")
+            print(
+                "食品 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします"
+            )
         elif item["type"] == "electronics":
-            print("電子機器 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします")
+            print(
+                "電子機器 "
+                + item["name"]
+                + " の在庫を"
+                + str(item["q"])
+                + "個減らします"
+            )
         elif item["type"] == "clothing":
-            print("衣料品 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします")
+            print(
+                "衣料品 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします"
+            )
         elif item["type"] == "books":
-            print("書籍 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします")
+            print(
+                "書籍 " + item["name"] + " の在庫を" + str(item["q"]) + "個減らします"
+            )
 
-    return {"customer_id": cid, "items": items, "subtotal": t, "shipping": s, "total": ft, "status": "pending"}
+    return {
+        "customer_id": cid,
+        "items": items,
+        "subtotal": t,
+        "shipping": s,
+        "total": ft,
+        "status": "pending",
+    }
 
 
 def process_return(cid, items, reason):
@@ -103,7 +128,12 @@ def process_return(cid, items, reason):
     print("件名: 返金処理完了 - 返金金額: " + str(r) + "円")
     print("本文: " + n + "様、返品を受け付けました。返金金額は" + str(r) + "円です。")
 
-    return {"customer_id": cid, "refund_amount": r, "reason": reason, "status": "refunded"}
+    return {
+        "customer_id": cid,
+        "refund_amount": r,
+        "reason": reason,
+        "status": "refunded",
+    }
 
 
 def check_order_status(cid, order_id):
@@ -123,7 +153,14 @@ def check_order_status(cid, order_id):
 
     print("メール送信先: " + e)
     print("件名: 注文状況のお知らせ")
-    print("本文: " + n + "様、ご注文(ID:" + str(order_id) + ")の現在のステータス: " + status)
+    print(
+        "本文: "
+        + n
+        + "様、ご注文(ID:"
+        + str(order_id)
+        + ")の現在のステータス: "
+        + status
+    )
 
     return {"order_id": order_id, "customer_id": cid, "status": status}
 

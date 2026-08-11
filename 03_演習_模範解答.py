@@ -30,8 +30,8 @@ CUSTOMERS: dict[int, dict] = {
 
 # 割引コード → 割引率のマッピング（新コード追加はここだけ変えればよい）
 DISCOUNT_RATES: dict[str, float] = {
-    "GOLD10":   0.10,
-    "SILVER5":  0.05,
+    "GOLD10": 0.10,
+    "SILVER5": 0.05,
     "SUMMER20": 0.20,
     "WINTER15": 0.15,
 }
@@ -41,11 +41,12 @@ DISCOUNT_RATES: dict[str, float] = {
 SHIPPING_RULES: list[tuple[int, int]] = [
     (5000, 0),
     (3000, 300),
-    (0,    500),
+    (0, 500),
 ]
 
 
 # ---- ヘルパー関数 ----------------------------------------
+
 
 def get_customer(customer_id: int) -> Optional[dict]:
     """顧客IDから顧客情報を取得する。存在しない場合は None を返す。"""
@@ -85,6 +86,7 @@ def update_inventory(items: list[dict]) -> None:
 
 
 # ---- メイン処理 ------------------------------------------
+
 
 def process_order(customer_id: int, items: list[dict], discount_code: str = "") -> dict:
     customer = get_customer(customer_id)
@@ -157,9 +159,9 @@ def check_order_status(customer_id: int, order_id: int) -> dict:
 # ============================================================
 if __name__ == "__main__":
     sample_items = [
-        {"name": "りんご",       "type": "food",        "price": 200,  "quantity": 3},
+        {"name": "りんご", "type": "food", "price": 200, "quantity": 3},
         {"name": "スマホケース", "type": "electronics", "price": 1500, "quantity": 1},
-        {"name": "Tシャツ",      "type": "clothing",    "price": 2000, "quantity": 2},
+        {"name": "Tシャツ", "type": "clothing", "price": 2000, "quantity": 2},
     ]
 
     print("=== 注文処理 ===")
