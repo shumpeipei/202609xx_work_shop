@@ -44,6 +44,14 @@ SHIPPING_RULES: list[tuple[int, int]] = [
     (0, 500),
 ]
 
+# 商品種別 → 表示用ラベルのマッピング（在庫更新メッセージの表示に使用）
+TYPE_LABELS: dict[str, str] = {
+    "food": "食品",
+    "electronics": "電子機器",
+    "clothing": "衣料品",
+    "books": "書籍",
+}
+
 
 # ---- ヘルパー関数 ----------------------------------------
 
@@ -82,7 +90,8 @@ def send_email(customer: dict, subject: str, body: str) -> None:
 def update_inventory(items: list[dict]) -> None:
     """注文商品の在庫を減らす（本番ではDB更新APIを呼ぶ）。"""
     for item in items:
-        print(f"{item['name']} の在庫を {item['quantity']} 個減らします")
+        label = TYPE_LABELS.get(item["type"], item["type"])
+        print(f"{label} {item['name']} の在庫を{item['quantity']}個減らします")
 
 
 # ---- メイン処理 ------------------------------------------
@@ -93,11 +102,12 @@ def process_order(customer_id: int, items: list[dict], discount_code: str = "") 
     if customer is None:
         raise ValueError(f"顧客ID {customer_id} が見つかりません")
 
-    subtotal = calculate_subtotal(items)
-    discount = calculate_discount(subtotal, discount_code)
-    discounted = subtotal - discount
-    shipping = calculate_shipping(discounted)
-    total = discounted + shipping
+    raw_subtotal = calculate_subtotal(items)
+    discount = calculate_discount(raw_subtotal, discount_code)
+    # 02の出力仕様に合わせ、"subtotal"は割引後の金額を表す
+    subtotal = raw_subtotal - discount
+    shipping = calculate_shipping(subtotal)
+    total = subtotal + shipping
 
     send_email(
         customer,
@@ -110,7 +120,6 @@ def process_order(customer_id: int, items: list[dict], discount_code: str = "") 
         "customer_id": customer_id,
         "items": items,
         "subtotal": subtotal,
-        "discount": discount,
         "shipping": shipping,
         "total": total,
         "status": "pending",
