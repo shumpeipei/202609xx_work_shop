@@ -96,7 +96,7 @@ section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255
 </tr>
 <tr>
 <td>0:35〜0:40</td>
-<td>ペアレビュー（簡易版）</td>
+<td>グループレビュー（簡易版）</td>
 <td>グループワーク</td>
 </tr>
 <tr>
@@ -750,9 +750,9 @@ section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255
 <ol>
 <li>コードを読み、<strong>問題点をリストアップ</strong>する</li>
 <li>問題点を優先順位付けし、<strong>改善方針を決める</strong></li>
-<li>Miroの担当フレームに、<strong>改善コードの差分と改善理由</strong>を記載する</li>
+<li>Miroに、<strong>改善コードの差分と改善理由</strong>を記載する</li>
 </ol>
-<p>コード全文はMiroに貼り付けず、変更した関数や10〜20行程度の差分だけをコードブロックで記載してください。</p>
+<p>コード全文はMiroに貼り付けず、変更した関数や10〜20行程度の差分だけを記載してください。</p>
 <h3 id="miro%E3%81%B8%E3%81%AE%E8%A8%98%E8%BC%89%E5%86%85%E5%AE%B9">Miroへの記載内容</h3>
 <p>各参加者の担当フレームに、次の3点を記載します。</p>
 <ul>
@@ -797,13 +797,12 @@ section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255
 <li>[ ] 変数名・関数名は意図を正確に伝えているか？</li>
 <li>[ ] マジックナンバーが直書きされていないか？</li>
 <li>[ ] エラーケース（存在しないIDなど）が考慮されているか？</li>
-<li>[ ] 改善コードの差分をMiroに記載したか？</li>
 <li>[ ] 改善理由を説明できるか？</li>
 <li>[ ] 分離した関数は単体テストしやすい形になっているか？</li>
 </ul>
 <footer>© 2026 テクニカルスキル勉強会</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-header="セクション4：ペアレビュー" data-footer="© 2026 テクニカルスキル勉強会" data-theme="default" data-style="section {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-header="セクション4：グループレビュー" data-footer="© 2026 テクニカルスキル勉強会" data-theme="default" data-style="section {
   font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
   font-size: 22px;
 }
@@ -816,7 +815,7 @@ table { font-size: 18px; }
 section.title-slide { background: #1a5276; color: white; }
 section.title-slide h1 { color: white; border-bottom: 3px solid rgba(255,255,255,0.5); }
 section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255,0.5); }
-" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--header:セクション4：ペアレビュー;--footer:© 2026 テクニカルスキル勉強会;--theme:default;--style:section {
+" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--header:セクション4：グループレビュー;--footer:© 2026 テクニカルスキル勉強会;--theme:default;--style:section {
   font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
   font-size: 22px;
 }
@@ -830,13 +829,12 @@ section.title-slide { background: #1a5276; color: white; }
 section.title-slide h1 { color: white; border-bottom: 3px solid rgba(255,255,255,0.5); }
 section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255,0.5); }
 ;" data-marpit-pagination-total="20">
-<header>セクション4：ペアレビュー</header>
+<header>セクション4：グループレビュー</header>
 
-<h2 id="%E3%83%9A%E3%82%A2%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">ペアレビュー</h2>
+<h2 id="%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">グループレビュー</h2>
 <p><strong>進め方</strong></p>
 <ul>
 <li>お互いに「一番の気づき」を <strong>1点だけmiroで共有</strong>する</li>
-<li>書面でのレビュー記入は行わない（時間に余裕がある回向けの詳細な進め方は <code>01_講義資料.md</code> 参照）</li>
 </ul>
 <p><strong>良い気づき共有の例</strong></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/2705.svg" data-marp-twemoji=""/> 良い点: get_customer() として抽出したことで DRY 原則が守られています。
@@ -880,9 +878,6 @@ section.title-slide h2 { color: #aed6f1; border-left: 5px solid rgba(255,255,255
 <header>セクション5：全体共有・解説</header>
 
 <h2 id="%E6%A8%A1%E7%AF%84%E8%A7%A3%E7%AD%94%E3%81%AE%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">模範解答のポイント</h2>
-<blockquote>
-<p>代表ペア発表は省略し、ファシリテーターが要点を直接解説します。</p>
-</blockquote>
 <table>
 <thead>
 <tr>
